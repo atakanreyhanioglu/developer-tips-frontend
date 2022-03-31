@@ -24,7 +24,7 @@ const Layout = ({children}) => {
        </Fragment>
     );
     const nav = () => (
-        <ui className="nav nav-tabs ">
+        <ul className="nav nav-tabs ">
             <li className="nav-item">
                 <Link href={"/"}>
                     <a className="nav-link text-black">
@@ -33,7 +33,7 @@ const Layout = ({children}) => {
                 </Link>
             </li>
             <li className="nav-item">
-                <Link href="/login">
+                <Link href={"/login"}>
                     <a className="nav-link text-black">
                         Login
                     </a>
@@ -46,7 +46,7 @@ const Layout = ({children}) => {
                     </a>
                 </Link>
             </li>
-        </ui>
+        </ul>
     )
     return (
         <Fragment>
