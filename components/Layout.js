@@ -37,14 +37,10 @@ const Layout = ({children}) => {
                 !isAuth() && (
                     <Fragment>
                         <li className="nav-item d-flex justify-content-center">
+                            !isAuth()()
                             <Link href={"/login"}>
                                 <a className="nav-link text-black">
                                     Login
-                                </a>
-                            </Link>
-                            <Link href={"/register"}>
-                                <a className="nav-link text-black">
-                                    Register
                                 </a>
                             </Link>
                         </li>
