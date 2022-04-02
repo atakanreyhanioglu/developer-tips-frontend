@@ -1,6 +1,5 @@
-import {useState, useEffect} from "react";
+import {useState} from "react";
 import Layout from "../components/Layout";
-import Link from 'next/link'
 import Router from 'next/router'
 import axios from "axios";
 import {showSuccessMessage, showErrorMessage} from "../helpers/alerts";

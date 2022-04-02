@@ -25,7 +25,7 @@ const Layout = ({children}) => {
        </Fragment>
     );
     const nav = () => (
-        <ul className="nav nav-tabs ">
+        <ul className="nav nav-tabs d-flex justify-content-between align-items-center">
             <li className="nav-item">
                 <Link href={"/"}>
                     <a className="nav-link text-black">
@@ -33,47 +33,51 @@ const Layout = ({children}) => {
                     </a>
                 </Link>
             </li>
-            <li className="nav-item">
-                <Link href={"/login"}>
-                    <a className="nav-link text-black">
-                        Login
-                    </a>
-                </Link>
-            </li>
-            <li className="nav-item">
-                <Link href={"/register"}>
-                    <a className="nav-link text-black">
-                        Register
-                    </a>
-                </Link>
-            </li>
+            {
+                !isAuth() && (
+                    <Fragment>
+                        <li className="nav-item d-flex justify-content-center">
+                            <Link href={"/login"}>
+                                <a className="nav-link text-black">
+                                    Login
+                                </a>
+                            </Link>
+                            <Link href={"/register"}>
+                                <a className="nav-link text-black">
+                                    Register
+                                </a>
+                            </Link>
+                        </li>
+                    </Fragment>
+                )
+            }
 
             {
                 isAuth() && isAuth().role === 'admin' && (
-                <li className="nav-item ml-auto">
+                <li className="nav-item d-flex justify-content-center">
                     <Link href={"/admin"}>
                         <a className="nav-link text-black">
-                            Admin
+                            {isAuth().name}
                         </a>
                     </Link>
+                    <button onClick={logout} className="nav-link text-black">
+                        Logout
+                    </button>
                 </li>
             )}
             {
                 isAuth() && isAuth().role === 'subscriber' && (
-                    <li className="nav-item ml-auto">
+                    <li className="nav-item justify-content-center">
                         <Link href={"/user"}>
                             <a className="nav-link text-black">
-                                User
+                                {isAuth().name}
                             </a>
                         </Link>
+                        <button onClick={logout} className="nav-link text-black">
+                            Logout
+                        </button>
                     </li>
                 )}
-
-            <li className="nav-item">
-                <button onClick={logout} className="nav-link text-black">
-                   Logout
-                </button>
-            </li>
         </ul>
     )
     return (
