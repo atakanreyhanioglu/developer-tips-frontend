@@ -34,33 +34,18 @@ const Layout = ({children}) => {
                 </Link>
             </li>
             {
-                !isAuth() && (
-                    <Fragment>
-                        <li className="nav-item d-flex justify-content-center">
-                            !isAuth()()
-                            <Link href={"/login"}>
-                                <a className="nav-link text-black">
-                                    Login
-                                </a>
-                            </Link>
-                        </li>
-                    </Fragment>
-                )
-            }
-
-            {
                 isAuth() && isAuth().role === 'admin' && (
-                <li className="nav-item d-flex justify-content-center">
-                    <Link href={"/admin"}>
-                        <a className="nav-link text-black">
-                            {isAuth().name}
-                        </a>
-                    </Link>
-                    <button onClick={logout} className="nav-link text-black">
-                        Logout
-                    </button>
-                </li>
-            )}
+                    <li className="nav-item d-flex justify-content-center">
+                        <Link href={"/admin"}>
+                            <a className="nav-link text-black">
+                                {isAuth().name}
+                            </a>
+                        </Link>
+                        <button onClick={logout} className="nav-link text-black">
+                            Logout
+                        </button>
+                    </li>
+                )}
             {
                 isAuth() && isAuth().role === 'subscriber' && (
                     <li className="nav-item justify-content-center">
@@ -74,6 +59,17 @@ const Layout = ({children}) => {
                         </button>
                     </li>
                 )}
+            {
+                !isAuth() && (
+                        <li className="nav-item d-flex justify-content-center">
+                            <Link href={"/login"}>
+                                <a className="nav-link text-black">
+                                    Login
+                                </a>
+                            </Link>
+                        </li>
+                )
+            }
         </ul>
     )
     return (

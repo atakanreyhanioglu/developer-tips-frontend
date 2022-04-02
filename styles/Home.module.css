@@ -1,0 +1,12 @@
+.card {
+    width: 800px;
+    height: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.card:hover {
+    background-color: antiquewhite;
+
+}
+
