@@ -2,6 +2,7 @@ import {Fragment} from "react";
 import Link from "next/link";
 import Router from "next/router"
 import NProgress from 'nprogress'
+import {isAuth, logout} from "../helpers/auth.helper";
 
 Router.onRouteChangeStart = url => NProgress.start()
 Router.onRouteChangeComplete = url => NProgress.done()
@@ -45,6 +46,33 @@ const Layout = ({children}) => {
                         Register
                     </a>
                 </Link>
+            </li>
+
+            {
+                isAuth() && isAuth().role === 'admin' && (
+                <li className="nav-item ml-auto">
+                    <Link href={"/admin"}>
+                        <a className="nav-link text-black">
+                            Admin
+                        </a>
+                    </Link>
+                </li>
+            )}
+            {
+                isAuth() && isAuth().role === 'subscriber' && (
+                    <li className="nav-item ml-auto">
+                        <Link href={"/user"}>
+                            <a className="nav-link text-black">
+                                User
+                            </a>
+                        </Link>
+                    </li>
+                )}
+
+            <li className="nav-item">
+                <button onClick={logout} className="nav-link text-black">
+                   Logout
+                </button>
             </li>
         </ul>
     )

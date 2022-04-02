@@ -32,8 +32,8 @@ const ActivateAccount = ({router}) => {
             const response = await axios.post(`${API}/register/activate`, {token})
             console.log('account activate response', response)
             setState({...state,name: '', token: '', buttonText: 'Activated', success: response.data.message})
+            router.push('/login')
         }catch (e) {
-            console.log(e.response.data.error)
             setState({...state,name: '', token: '',disableButton: true , buttonText: 'Activate Account', error: e.response.data.error})
         }
     }
@@ -48,6 +48,7 @@ const ActivateAccount = ({router}) => {
                 {success && showSuccessMessage(success)}
                 {error && showErrorMessage(error)}
                 <button className="btn btn-primary" type={"button"} onClick={clickSubmit} disabled={disableButton ? disableButton : false}>{buttonText}</button>
+
             </div>
         </div>
     </Layout>

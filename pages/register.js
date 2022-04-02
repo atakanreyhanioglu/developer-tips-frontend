@@ -1,9 +1,8 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import Layout from "../components/Layout";
 import axios from "axios";
 import {showSuccessMessage, showErrorMessage} from "../helpers/alerts";
 import {API} from "../config"
-
 const Register = () => {
     const [state, setState] = useState({
         name: '',
