@@ -25,7 +25,7 @@ const Home = () => {
                 <h1 className={"mb-4"}>Developer Tips</h1>
                 {data.map((d, idx) => {
                     return (
-                        <div key={idx} className="card border border-grey shadow-0 m-2">
+                        <div key={idx} className="w-100 card border border-grey shadow-0 m-2 mw-80">
                             <Link href={`/tip/${d._id}`}>
                                 <div className={styles.card}>
                                     <div className={"p-4"}>
