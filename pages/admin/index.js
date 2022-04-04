@@ -49,7 +49,12 @@ const Admin = () => {
                 error: ``,
                 success: `${response.data.status}`
             })
-        }catch (err) {
+            const checkBoxes = document.getElementsByClassName('checkbox')
+            for (let box of checkBoxes) {
+                box.checked = false
+            }
+            }catch (err) {
+            console.log(err)
             setState({...state, error: `${err.response.data.error}`})
         }
     }
@@ -59,46 +64,46 @@ const Admin = () => {
             <h3>Tags</h3>
             <div className={"check-boxes justify-content-space-between align-items-flex-start flex-column flex-wrap"}>
                 <div className={"nodejs-checkbox"}>
-                    <input onChange={handleChangeCheckBox('nodejs')} className="form-check-nodejs" type="checkbox"
+                    <input onChange={handleChangeCheckBox('nodejs')} className="checkbox form-check-nodejs" type="checkbox"
                            id="form-check-nodejs"/>
                     <label className="form-check-nodejs" htmlFor="nodejs">
                         Node.js
                     </label>
                 </div>
                 <div className={"typescript-checkbox"}>
-                    <input onChange={handleChangeCheckBox('typescript')} className="form-check-typescript" type="checkbox" value="typescript"
+                    <input onChange={handleChangeCheckBox('typescript')} className="checkbox form-check-typescript" type="checkbox" value="typescript"
                            id="typescript"/>
                     <label className="form-check-typescript" htmlFor="typescript">
                         Typescript
                     </label>
                 </div>
                 <div className={"NoSql-checkbox"}>
-                    <input onChange={handleChangeCheckBox('nosql')} className="form-check-NoSql" type="checkbox" value="nosql" id="NoSql"/>
+                    <input onChange={handleChangeCheckBox('nosql')} className="checkbox form-check-NoSql" type="checkbox" value="nosql" id="NoSql"/>
                     <label className="form-check-NoSql" htmlFor="NoSql">
                         NoSql
                     </label>
                 </div>
                 <div className={"Sql-checkbox"}>
-                    <input onChange={handleChangeCheckBox('sql')} className="form-check-Sql" type="checkbox" value="sql" id="Sql"/>
+                    <input onChange={handleChangeCheckBox('sql')} className="checkbox form-check-Sql" type="checkbox" value="sql" id="Sql"/>
                     <label className="form-check-Sql" htmlFor="Sql">
                         Sql
                     </label>
                 </div>
                 <div className={"Javascript-checkbox"}>
-                    <input onChange={handleChangeCheckBox('javascript')} className="form-check-Javascript" type="checkbox" value="javascript"
+                    <input onChange={handleChangeCheckBox('javascript')} className="checkbox form-check-Javascript" type="checkbox" value="javascript"
                            id="javascript"/>
                     <label className="form-check-Javascript" htmlFor="Javascript">
                         Javascript
                     </label>
                 </div>
                 <div className={"HTML5-checkbox"}>
-                    <input onChange={handleChangeCheckBox('html')} className="form-check-HTML5" type="checkbox" value="html5" id="html5"/>
+                    <input onChange={handleChangeCheckBox('html')} className="checkbox form-check-HTML5" type="checkbox" value="html5" id="html5"/>
                     <label className="form-check-HTML5" htmlFor="HTML5">
                         HTML5
                     </label>
                 </div>
                 <div className={"CSS3-checkbox"}>
-                    <input onChange={handleChangeCheckBox('css')} className="form-check-CSS3" type="checkbox" value="css3" id="css3"/>
+                    <input onChange={handleChangeCheckBox('css')} className="checkbox form-check-CSS3" type="checkbox" value="css3" id="css3"/>
                     <label className="form-check-CSS3" htmlFor="CSS3">
                         CSS3
                     </label>
